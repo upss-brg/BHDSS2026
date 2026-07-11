@@ -386,6 +386,34 @@
             margin-top: 0.25rem;
         }
 
+
+        /* --- EVENT DETAILS BOX --- */
+        .event-details {
+            display: flex;
+            flex-wrap: wrap; /* Allows items to sit side-by-side, dropping to a new line on small screens */
+            gap: 2rem;       /* Space between the Date and Location */
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color, #e2e8f0); /* Subtle separator line */
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center; /* Centers the icon with the text */
+            gap: 0.6rem;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+        
+        .detail-item i {
+            font-size: 1.4rem;
+            color: var(--up-maroon);
+        }
+        
+        .detail-item span {
+            font-weight: 500;
+        }
+
         /* --- GENERIC CAROUSEL FRAMEWORK --- */
         .carousel-wrapper {
             position: relative;
@@ -538,6 +566,10 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             opacity: 0.8;
+            transition: color 0.2s ease;
+        }
+        .speaker-card:hover .click-hint {
+            color: var(--up-maroon);
         }
 
         /* --- INTERACTIVE PROGRAM SCHEDULE --- */
@@ -1175,6 +1207,198 @@
         #register-nav-btn {
             color: var(--white);
         }
+
+        /* --- TOAST NOTIFICATION --- */
+        .toast-notification {
+            position: fixed;
+            top: 100px; /* Clears your fixed nav */
+            right: -400px; /* Hidden off-screen initially */
+            width: 350px;
+            background-color: var(--white);
+            border-bottom: 4px solid var(--up-maroon);
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: flex-start;
+            padding: 1.2rem;
+            gap: 1rem;
+            z-index: 2000; /* Keeps it above everything, including your modal */
+            transition: right 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Class added by JS to trigger the slide-in */
+        .toast-notification.show {
+            right: 24px;
+        }
+
+        .toast-icon {
+            color: var(--up-gold);
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .toast-content {
+            flex-grow: 1;
+        }
+
+        .toast-content h4 {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--up-maroon);
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .toast-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0;
+            margin: -0.2rem -0.2rem 0 0;
+            transition: color 0.2s ease;
+        }
+
+        .toast-close:hover {
+            color: var(--up-maroon);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 480px) {
+            .toast-notification {
+                width: calc(100% - 40px); /* accounts for 20px padding on each side */
+                right: -100%;
+            }
+            .toast-notification.show {
+                right: 20px;
+            }
+        }
+
+        /* --- VIEW TOGGLE BUTTONS --- */
+        .view-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: var(--border-color, #f1f5f9);
+            padding: 0.4rem;
+            border-radius: 50px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted, #64748b);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toggle-btn.active {
+            background: var(--up-maroon, #7b1113);
+            color: white;
+            box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .toggle-btn:not(.active):hover {
+            color: var(--up-maroon, #7b1113);
+        }
+
+        /* --- COMPACT VIEW GRID --- */
+        .compact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color, #e2e8f0);
+        }
+
+        /* Drop to 1 column on smaller screens */
+        @media (max-width: 768px) {
+            .compact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 1.5rem;
+            }
+        }
+
+        .compact-day-title {
+            color: var(--up-maroon, #7b1113);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--up-gold, #fbb034);
+            padding-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .compact-date {
+            font-size: 0.9rem;
+            color: var(--text-muted, #64748b);
+            font-weight: 500;
+        }
+
+        .compact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .compact-list li {
+            display: flex;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color, #f1f5f9);
+            font-size: 0.95rem;
+        }
+
+        .compact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .compact-list .c-time {
+            font-weight: 600;
+            color: var(--text-dark, #1e293b);
+            width: 90px;
+            flex-shrink: 0;
+        }
+
+        .compact-list .c-title {
+            color: var(--text-dark, #334155);
+        }
+
+        /* Make breaks look lighter so talks stand out */
+        .compact-list .c-break {
+            color: var(--text-muted, #94a3b8);
+            font-style: italic;
+        }
+        .compact-list .c-break .c-time, 
+        .compact-list .c-break .c-title {
+            color: var(--text-muted, #94a3b8);
+            font-weight: 400;
+        }
     </style>
 </head>
 <body>
@@ -1220,9 +1444,20 @@
         <h2 class="fade-up">Welcome</h2>
         <div class="welcome-grid">
             <div class="about-content fade-up delay-1">
-               <p>
-                The UP School of Statistics invites statisticians, biostatisticians, epidemiologists, students, practitioners of statistics in the industry and government, and other enthusiasts to the <b>Biostatistics and Health Data Science Summit 2026</b>. The event is a two-day conference that features talks from prominent researchers in biostatistics and epidemiology from prestigious international and local institutions, as well as early-career researchers in biostatistics.
-               </p>
+                <p>
+                 The UP School of Statistics invites statisticians, biostatisticians, epidemiologists, students, practitioners of statistics in the industry and government, and other enthusiasts to the <b>Biostatistics and Health Data Science Summit 2026</b>. The event is a two-day conference that features talks from prominent researchers in biostatistics and epidemiology from prestigious international and local institutions, as well as early-career researchers in biostatistics.
+                </p>
+                <div class="event-details">
+                    <div class="detail-item">
+                        <i class="ph ph-calendar-blank"></i>
+                        <span><strong>When:</strong> 14-15 September 2026</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="ph ph-map-pin"></i>
+                        <span><strong>Where:</strong> UP School of Statistics Auditorium</span>
+                    </div>
+                </div>
+                
             </div>
             <div class="welcome-metrics fade-up delay-2">
                 <div class="metric-card">
@@ -1240,7 +1475,7 @@
                     </div>
                 </div>
                 <div class="metric-card">
-                    <i class="ph ph-globe-hemisphere-west metric-icon"></i>
+                    <i class="ph ph-presentation-chart metric-icon"></i>
                     <div>
                         <div class="metric-num">10+</div>
                         <div class="metric-label">Research talks</div>
@@ -1261,7 +1496,7 @@
                         <div class="carousel-card">
                             <div class="speaker-card" onclick="openModal('mathew')">
                                 <div class="speaker-image-container">
-                                    <img src="./images/mathew-thomas-2.jpg" alt="Thomas Mathew">
+                                    <img src="./images/mathew-thomas.jpg" alt="Thomas Mathew">
                                 </div>
                                 <div class="speaker-info">
                                     <h3>Dr. Thomas Mathew</h3>
@@ -1400,249 +1635,300 @@
         <h2 class="fade-up">Program Schedule</h2>
         <p class="section-subtitle fade-up delay-1">A timeline of interactive keynotes, technical sessions, and academic peer networking panels</p>
         
-        <div class="schedule-tabs fade-up delay-1">
-            <button class="tab-btn active" onclick="switchDay(1, this)"><i class="ph ph-calendar-blank"></i> Day 1 (Sept 14)</button>
-            <button class="tab-btn" onclick="switchDay(2, this)"><i class="ph ph-calendar-blank"></i> Day 2 (Sept 15)</button>
+        <div class="view-toggle fade-up delay-1">
+            <button class="toggle-btn active" onclick="toggleScheduleView('detailed', this)"><i class="ph ph-list-dashes"></i> Detailed View</button>
+            <button class="toggle-btn" onclick="toggleScheduleView('compact', this)"><i class="ph ph-squares-four"></i> Compact View</button>
         </div>
 
-        <div id="day1-content" class="tab-content active fade-up delay-2">
-            <div class="timeline-wrapper">
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 07:30 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-clipboard-text"></i> Administrative</span>
-                        <h4>Registration</h4>
-                        <p>Distribution of conference materials, badges, and credentials at the main lobby.</p>
+        <div id="detailed-view">
+            <div class="schedule-tabs fade-up delay-1">
+                <button class="tab-btn active" onclick="switchDay(1, this)"><i class="ph ph-calendar-blank"></i> Day 1 (Sept 14)</button>
+                <button class="tab-btn" onclick="switchDay(2, this)"><i class="ph ph-calendar-blank"></i> Day 2 (Sept 15)</button>
+            </div>
+
+            <div id="day1-content" class="tab-content active fade-up delay-2">
+                <div class="timeline-wrapper">
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 07:30 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-clipboard-text"></i> Administrative</span>
+                            <h4>Registration</h4>
+                            <p>Distribution of conference materials, badges, and credentials at the main lobby.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 08:30 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-microphone-stage"></i> Plenary</span>
+                            <h4>Opening Ceremony</h4>
+                            <p>Introduction and welcoming for to mark the beginning of the conference.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 09:30 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
+                            <h4>Break</h4>
+                            <p>Short pause to stretch your legs.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 09:45 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Dr. Thomas Mathew</b>.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 10:45 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
+                            <h4>Break</h4>
+                            <p>Short pause to stretch your legs.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 11:00 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Dr. Thomas Mathew</b>.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 12:00 NN</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-camera"></i> PHOTO OP</span>
+                            <h4>Photo Opportunity</h4>
+                            <p>Taking of pictures and videos.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 12:15 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-bowl-steam"></i> MEAL BREAK</span>
+                            <h4>Lunch Time</h4>
+                            <p>Time to eat lunch.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 01:30 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Dr. Yehenew Kifle</b>.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 02:30 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
+                            <h4>Break</h4>
+                            <p>Short pause to stretch your legs.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 02:45 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Dr. Yehenew Kifle</b>.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 03:45 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
+                            <h4>Break</h4>
+                            <p>Short pause to stretch your legs.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 04:00 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-users-three"></i> Socials</span>
+                            <h4>Socials and Networking</h4>
+                            <p>Time to engage with others at the lobby!</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 06:00 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-bowl-steam"></i> MEAL </span>
+                            <h4>Conference Dinner</h4>
+                            <p>For faculty and speakers</p>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 08:30 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-microphone-stage"></i> Plenary</span>
-                        <h4>Opening Ceremony</h4>
-                        <p>Introduction and welcoming for to mark the beginning of the conference.</p>
+            </div>
+
+            <div id="day2-content" class="tab-content fade-up">
+                <div class="timeline-wrapper">
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 07:30 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-clipboard-text"></i> Administrative</span>
+                            <h4>Registration</h4>
+                            <p>Distribution of conference materials, badges, and credentials at the main lobby.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 09:30 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
-                        <h4>Break</h4>
-                        <p>Short pause to stretch your legs.</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 08:30 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Dr. Stephen Jun Villejo</b>.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 09:45 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Dr. Thomas Mathew</b>.</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 09:30 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
+                            <h4>Break</h4>
+                            <p>Short pause to stretch your legs.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 10:45 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
-                        <h4>Break</h4>
-                        <p>Short pause to stretch your legs.</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 09:45 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Dr. Michael Daniel Lucagbo</b>.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 11:00 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Dr. Thomas Mathew</b>.</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 10:45 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
+                            <h4>Break</h4>
+                            <p>Short pause to stretch your legs.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 12:00 NN</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-camera"></i> PHOTO OP</span>
-                        <h4>Photo Opportunity</h4>
-                        <p>Taking of pictures and videos.</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 11:00 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Asst. Prof. Alvin Duke Sy</b>.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 12:15 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-bowl-steam"></i> MEAL BREAK</span>
-                        <h4>Lunch Time</h4>
-                        <p>Time to eat lunch.</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 11:30 AM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Asst. Prof. Iana Michelle Garcia</b>.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 01:30 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Dr. Yehenew Kifle</b>.</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 12:00 NN</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-bowl-steam"></i> MEAL BREAK</span>
+                            <h4>Lunch Time</h4>
+                            <p>Time to eat lunch.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 02:30 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
-                        <h4>Break</h4>
-                        <p>Short pause to stretch your legs.</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 01:30 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Asst. Prof. Placeholder</b>.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 02:45 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Dr. Yehenew Kifle</b>.</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 02:00 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Asst. Prof. Lian Mae Tabien</b>.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 03:45 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
-                        <h4>Break</h4>
-                        <p>Short pause to stretch your legs.</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 02:30 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
+                            <h4>Break</h4>
+                            <p>Short pause to stretch your legs.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 04:00 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-users-three"></i> Socials</span>
-                        <h4>Socials and Networking</h4>
-                        <p>Time to engage with others at the lobby!</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 02:45 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Asst. Prof. John Gilbert Rabanal</b>.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 06:00 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-bowl-steam"></i> MEAL </span>
-                        <h4>Conference Dinner</h4>
-                        <p>For faculty and speakers</p>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 03:15 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
+                            <h4>Research Title Placeholder</h4>
+                            <p>Presentation and talk from <b>Asst. Prof. John Eustaquio</b>.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 03:45 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
+                            <h4>Break</h4>
+                            <p>Short pause to stretch your legs.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time"><i class="ph ph-clock"></i> 04:00 PM</div>
+                        <div class="timeline-details">
+                            <span class="tag tag-plenary"><i class="ph ph-microphone-stage"></i> Plenary</span>
+                            <h4>Closing Ceremony</h4>
+                            <p>The official closing of the conference.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="day2-content" class="tab-content fade-up">
-            <div class="timeline-wrapper">
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 07:30 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-clipboard-text"></i> Administrative</span>
-                        <h4>Registration</h4>
-                        <p>Distribution of conference materials, badges, and credentials at the main lobby.</p>
-                    </div>
+        <div id="compact-view" style="display: none;" class="fade-up delay-2">
+            <div class="compact-grid">
+                <div class="compact-day-column">
+                    <h3 class="compact-day-title">Day 1 <span class="compact-date">(Sept 14)</span></h3>
+                    <ul class="compact-list">
+                        <li><span class="c-time">07:30 AM</span> <span class="c-title">Registration</span></li>
+                        <li><span class="c-time">08:30 AM</span> <span class="c-title">Opening Ceremony</span></li>
+                        <li class="c-break"><span class="c-time">09:30 AM</span> <span class="c-title">Break</span></li>
+                        <li><span class="c-time">09:45 AM</span> <span class="c-title">Research Talk</span></li>
+                        <li class="c-break"><span class="c-time">10:45 AM</span> <span class="c-title">Break</span></li>
+                        <li><span class="c-time">11:00 AM</span> <span class="c-title">Research Talk</span></li>
+                        <li><span class="c-time">12:00 NN</span> <span class="c-title">Photo Opportunity</span></li>
+                        <li class="c-break"><span class="c-time">12:15 PM</span> <span class="c-title">Lunch Time</span></li>
+                        <li><span class="c-time">01:30 PM</span> <span class="c-title">Research Talk</span></li>
+                        <li class="c-break"><span class="c-time">02:30 PM</span> <span class="c-title">Break</span></li>
+                        <li><span class="c-time">02:45 PM</span> <span class="c-title">Research Talk</span></li>
+                        <li class="c-break"><span class="c-time">03:45 PM</span> <span class="c-title">Break</span></li>
+                        <li><span class="c-time">04:00 PM</span> <span class="c-title">Socials and Networking</span></li>
+                        <li><span class="c-time">06:00 PM</span> <span class="c-title">Conference Dinner</span></li>
+                    </ul>
                 </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 08:30 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Dr. Stephen Jun Villejo</b>.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 09:30 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
-                        <h4>Break</h4>
-                        <p>Short pause to stretch your legs.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 09:45 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Dr. Michael Daniel Lucagbo</b>.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 10:45 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
-                        <h4>Break</h4>
-                        <p>Short pause to stretch your legs.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 11:00 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Asst. Prof. Alvin Duke Sy</b>.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 11:30 AM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Asst. Prof. Iana Michelle Garcia</b>.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 12:00 NN</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-bowl-steam"></i> MEAL BREAK</span>
-                        <h4>Lunch Time</h4>
-                        <p>Time to eat lunch.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 01:30 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Asst. Prof. Placeholder</b>.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 02:00 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Asst. Prof. Lian Mae Tabien</b>.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 02:30 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
-                        <h4>Break</h4>
-                        <p>Short pause to stretch your legs.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 02:45 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Asst. Prof. John Gilbert Rabanal</b>.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 03:15 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                        <h4>Research Title Placeholder</h4>
-                        <p>Presentation and talk from <b>Asst. Prof. John Eustaquio</b>.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 03:45 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag"><i class="ph ph-coffee"></i> Intermission</span>
-                        <h4>Break</h4>
-                        <p>Short pause to stretch your legs.</p>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="timeline-time"><i class="ph ph-clock"></i> 04:00 PM</div>
-                    <div class="timeline-details">
-                        <span class="tag tag-plenary"><i class="ph ph-microphone-stage"></i> Plenary</span>
-                        <h4>Closing Ceremony</h4>
-                        <p>The official closing of the conference.</p>
-                    </div>
+                <div class="compact-day-column">
+                    <h3 class="compact-day-title">Day 2 <span class="compact-date">(Sept 15)</span></h3>
+                    <ul class="compact-list">
+                        <li><span class="c-time">07:30 AM</span> <span class="c-title">Registration</span></li>
+                        <li><span class="c-time">08:30 AM</span> <span class="c-title">Research Talk</span></li>
+                        <li class="c-break"><span class="c-time">09:30 AM</span> <span class="c-title">Break</span></li>
+                        <li><span class="c-time">09:45 AM</span> <span class="c-title">Research Talk</span></li>
+                        <li class="c-break"><span class="c-time">10:45 AM</span> <span class="c-title">Break</span></li>
+                        <li><span class="c-time">11:00 AM</span> <span class="c-title">Research Talk</span></li>
+                        <li><span class="c-time">11:30 AM</span> <span class="c-title">Research Talk</span></li>
+                        <li class="c-break"><span class="c-time">12:00 NN</span> <span class="c-title">Lunch Time</span></li>
+                        <li><span class="c-time">01:30 PM</span> <span class="c-title">Research Talk</span></li>
+                        <li><span class="c-time">02:00 PM</span> <span class="c-title">Research Talk</span></li>
+                        <li class="c-break"><span class="c-time">02:30 PM</span> <span class="c-title">Break</span></li>
+                        <li><span class="c-time">02:45 PM</span> <span class="c-title">Research Talk</span></li>
+                        <li><span class="c-time">03:15 PM</span> <span class="c-title">Research Talk</span></li>
+                        <li class="c-break"><span class="c-time">03:45 PM</span> <span class="c-title">Break</span></li>
+                        <li><span class="c-time">04:00 PM</span> <span class="c-title">Closing Ceremony</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1658,48 +1944,30 @@
                 <div class="carousel-container">
                     <div id="research-track" class="carousel-track">
                         <div class="carousel-card">
-                            <div class="research-card" onclick="openResearchModal('dengue-spatial')">
-                                <span class="research-tag"><i class="ph ph-flask"></i> Epidemiology</span>
-                                <h3>Spatial Modeling of Dengue Outbreaks in Urban Environments</h3>
-                                <p class="research-authors"><i class="ph ph-user"></i> M. Santos, J. Dela Cruz</p>
-                                <p class="research-abstract">A non-parametric approach to mapping high-risk zones using real-time climatic and demographic variables across the localized districts of Metro Manila to guide immediate public interventions.</p>
-                                <span class="research-link">Read Abstract <i class="ph ph-arrow-right"></i></span>
+                            <div class="research-card" onclick="openResearchModal('placeholder')">
+                                <span class="research-tag"><i class="ph ph-pulse"></i> Placeholder</span>
+                                <h3>Research Work Title</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> Research Work Authors</p>
+                                <p class="research-abstract">To follow.</p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
                             </div>
                         </div>
                         <div class="carousel-card">
-                            <div class="research-card" onclick="openResearchModal('oncology-survival')">
-                                <span class="research-tag"><i class="ph ph-pulse"></i> Clinical Trials</span>
-                                <h3>Non-parametric Survival Analysis in Oncology Data</h3>
-                                <p class="research-authors"><i class="ph ph-user"></i> A. Rivera, E. Reyes</p>
-                                <p class="research-abstract">Evaluating adjustments for unobserved heterogeneity and self-reported biases in survival timelines among patients participating in longitudinal cancer treatment therapies.</p>
-                                <span class="research-link">Read Abstract <i class="ph ph-arrow-right"></i></span>
+                            <div class="research-card" onclick="openResearchModal('placeholder')">
+                                <span class="research-tag"><i class="ph ph-pulse"></i> Placeholder</span>
+                                <h3>Research Work Title</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> Research Work Authors</p>
+                                <p class="research-abstract">To follow.</p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
                             </div>
                         </div>
                         <div class="carousel-card">
-                            <div class="research-card" onclick="openResearchModal('bias-reduction')">
-                                <span class="research-tag"><i class="ph ph-database"></i> Computational Health</span>
-                                <h3>Algorithmic Bias Reduction in Health Registries</h3>
-                                <p class="research-authors"><i class="ph ph-user"></i> T. Villanueva, C. Bautista</p>
-                                <p class="research-abstract">Proposing structural mathematical adjustments to correct implicit systemic biases prevalent in historical national health databases using novel imputation algorithms.</p>
-                                <span class="research-link">Read Abstract <i class="ph ph-arrow-right"></i></span>
-                            </div>
-                        </div>
-                        <div class="carousel-card">
-                            <div class="research-card" onclick="openResearchModal('dengue-spatial')">
-                                <span class="research-tag"><i class="ph ph-flask"></i> Epidemiology</span>
-                                <h3>Spatial Modeling of Dengue Outbreaks in Urban Environments</h3>
-                                <p class="research-authors"><i class="ph ph-user"></i> M. Santos, J. Dela Cruz</p>
-                                <p class="research-abstract">A non-parametric approach to mapping high-risk zones using real-time climatic and demographic variables across the localized districts of Metro Manila to guide immediate public interventions.</p>
-                                <span class="research-link">Read Abstract <i class="ph ph-arrow-right"></i></span>
-                            </div>
-                        </div>
-                        <div class="carousel-card">
-                            <div class="research-card" onclick="openResearchModal('oncology-survival')">
-                                <span class="research-tag"><i class="ph ph-pulse"></i> Clinical Trials</span>
-                                <h3>Non-parametric Survival Analysis in Oncology Data</h3>
-                                <p class="research-authors"><i class="ph ph-user"></i> A. Rivera, E. Reyes</p>
-                                <p class="research-abstract">Evaluating adjustments for unobserved heterogeneity and self-reported biases in survival timelines among patients participating in longitudinal cancer treatment therapies.</p>
-                                <span class="research-link">Read Abstract <i class="ph ph-arrow-right"></i></span>
+                            <div class="research-card" onclick="openResearchModal('placeholder')">
+                                <span class="research-tag"><i class="ph ph-pulse"></i> Placeholder</span>
+                                <h3>Research Work Title</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> Research Work Authors</p>
+                                <p class="research-abstract">To follow.</p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
                             </div>
                         </div>
                     </div>
@@ -2134,23 +2402,11 @@
 
         // Pre-fetched Research Abstract Storage
         const researchData = {
-            'dengue-spatial': {
-                tag: 'Epidemiology',
-                title: 'Spatial Modeling of Dengue Outbreaks in Urban Environments',
-                authors: 'M. Santos, J. Dela Cruz',
-                abstract: 'A non-parametric approach to mapping high-risk zones using real-time climatic and demographic variables across the localized districts of Metro Manila to guide immediate public interventions. This project develops highly dynamic predictive layers by parsing environmental sensor data alongside crowded township records. The structural outputs present granular hazard matrices, offering public health personnel up to 14 days of preventative warning before vector saturation triggers localized outbreaks.'
-            },
-            'oncology-survival': {
-                tag: 'Clinical Trials',
-                title: 'Non-parametric Survival Analysis in Oncology Data',
-                authors: 'A. Rivera, E. Reyes',
-                abstract: 'Evaluating adjustments for unobserved heterogeneity and self-reported biases in survival timelines among patients participating in longitudinal cancer treatment therapies. By applying modern alternative mathematical transformations to standard survival matrices, this research effectively neutralizes complex multi-institution tracking fragmentation errors. The models provide reliable, clinical-grade trajectory insights even when dealing with sparse or highly truncated cohort registries.'
-            },
-            'bias-reduction': {
-                tag: 'Computational Health',
-                title: 'Algorithmic Bias Reduction in Health Registries',
-                authors: 'T. Villanueva, C. Bautista',
-                abstract: 'Proposing structural mathematical adjustments to correct implicit systemic biases prevalent in historical national health databases using novel imputation algorithms. Historically, peripheral data channels from rural medical hubs suffer from chronic diagnostic reporting lag and metadata omission. This methodology constructs balanced, adaptive neural-imputation matrices that systematically adjust weighting disparities, restoring reliable population tracking insights.'
+            'placeholder': {
+                tag: 'Placeholder',
+                title: 'Research Work Title',
+                authors: 'Research Work Authors',
+                abstract: 'To follow.'
             }
         };
 
@@ -2206,6 +2462,58 @@
                 closeResearchModal();
             }
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const toast = document.getElementById('announcement-toast');
+            const closeBtn = document.getElementById('close-toast');
+
+            // Slide the toast in 1 second after the page loads
+            setTimeout(() => {
+                if (toast) {
+                    toast.classList.add('show');
+                }
+            }, 1000);
+
+            // Remove the 'show' class to slide it back out when 'X' is clicked
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    toast.classList.remove('show');
+                });
+            }
+        });
+
+        function toggleScheduleView(viewType, btnElement) {
+            // 1. Update active state on toggle buttons
+            const buttons = document.querySelectorAll('.toggle-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            // 2. Show/Hide the relevant views
+            const detailedView = document.getElementById('detailed-view');
+            const compactView = document.getElementById('compact-view');
+
+            if (viewType === 'compact') {
+                detailedView.style.display = 'none';
+                compactView.style.display = 'block';
+            } else {
+                detailedView.style.display = 'block';
+                compactView.style.display = 'none';
+            }
+        }
     </script>
+
+    <div class="toast-notification" id="announcement-toast">
+        <div class="toast-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+        </div>
+        <div class="toast-content">
+            <h4>Announcement</h4>
+            <p>Some sections of the conference site currently include placeholder content while we complete and finalize the conference details.</p>
+        </div>
+        <button class="toast-close" id="close-toast" aria-label="Close Toast">&times;</button>
+    </div>
 </body>
 </html>
