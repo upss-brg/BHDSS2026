@@ -110,6 +110,7 @@
             box-shadow: var(--shadow-sm);
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid transparent;
+            cursor: pointer;
         }
         .btn:hover {
             background-color: var(--up-maroon-dark);
@@ -875,6 +876,40 @@
             text-align: left !important;
         }
 
+        /* --- TEAM MODAL SPECIFIC STYLES --- */
+        .team-section {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .team-section h4 {
+            font-family: var(--font-sans);
+            color: var(--up-maroon);
+            font-size: 1.15rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.8rem;
+        }
+        .team-section ul {
+            list-style-type: none;
+            padding-left: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .team-section ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .team-section ul li::before {
+            content: '•';
+            color: var(--up-gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
         /* --- VENUE SECTION --- */
         .venue-gallery {
             display: grid;
@@ -915,15 +950,6 @@
             border: 1px solid var(--border-color);
             overflow: hidden;
         }
-        /* .venue-map::after {
-            content: 'Map Integration Placeholder';
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 0.95rem;
-        } */
 
         /* --- FAQ SECTION --- */
         .faq-max-width {
@@ -1693,7 +1719,7 @@
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
                             <h4>Title to be announced</h4>
-                            <p>Presentation and talk from <b>Dr. Dr. Yehenew Kifle</b>.</p>
+                            <p>Presentation and talk from <b>Dr. Yehenew Kifle</b>.</p>
                         </div>
                     </div>
                     <div class="timeline-row">
@@ -1937,7 +1963,7 @@
     <div class="bg-gray">
         <section id="research">
             <h2 class="fade-up">Research Works</h2>
-            <p class="section-subtitle fade-up delay-1">Highlighting pioneering academic studies in biostatistical methodology and localized clinical applications</p>
+            <p class="section-subtitle fade-up delay-1">Showcasing academic studies driving meaningful innovation in biostatistics and its applications</p>
 
             <div class="carousel-wrapper fade-up delay-2">
                 <button class="carousel-btn prev" onclick="navigateCarousel('research-track', -1)"><i class="ph ph-caret-left"></i></button>
@@ -2025,7 +2051,7 @@
                         <img src="./images/upss.png" alt="UP School of Statistics Logo">
                     </div>
                     <h3>UP School of Statistics</h3>
-                    <p>The UP School of Statistics is a leading center for statistical research, education, and innovation in the Philippines. Through its academic programs and research initiatives, the School advances the development and application of statistical methods across diverse fields, including public health, economics, social sciences, and data science.</p>
+                    <p>The UP School of Statistics is a leading center for statistical research, education, and innovation in the Philippines. Through its academic programs and research initiatives, the School advances the development and application of statistical methods across diverse fields, including public health, economics, social sciences, natural sciences, data science, and more.</p>
                 </div>
                 <div class="organizer-card">
                     <div class="organizer-card-logo-container">
@@ -2035,7 +2061,58 @@
                     <p>The Biostatistics Research Group of the UP School of Statistics focuses on the development and application of statistical methods to address challenges in health, medicine, and public health research. Through methodological innovation, interdisciplinary collaboration, and research training, the group advances the role of biostatistics in generating evidence and informing health-related decisions.</p>
                 </div>
             </div>
+
+            <!-- Meet the Team Button -->
+            <div style="text-align: center; margin-top: 4rem;" class="fade-up delay-3">
+                <button class="btn" onclick="openTeamModal()"><i class="ph ph-users-three"></i> Meet the Team</button>
+            </div>
         </section>
+    </div>
+
+    <!-- Team Modal -->
+    <div id="teamModal" class="modal-overlay">
+        <div class="modal-content" style="text-align: left;">
+            <span class="modal-close" onclick="closeTeamModal()"><i class="ph ph-x"></i></span>
+            <h3 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center; color: var(--up-maroon); font-family: var(--font-serif);">Meet the Team</h3>
+            
+            <div class="team-section">
+                <h4>UPSS Biostatistics Research Group</h4>
+                <ul>
+                    <li>Alas, Rose Anne</li>
+                    <li>Antonio, Czarinne Antoinette</li>
+                    <li>Borlongan, Martin Augustine</li>
+                    <li>Cambel, Sheyenne</li>
+                    <li>Catulpos, Ruselle</li>
+                    <li>Centillas, Joanna Rose</li>
+                    <li>de Jesus, Nicco</li>
+                    <li>Eustaquio, John</li>
+                    <li>Garcia, Iana Michelle</li>
+                    <li>Lucagbo, Michael Daniel</li>
+                    <li>Magadia, Joselito</li>
+                    <li>Manapat, George Ringo</li>
+                    <li>Matala, Shaine Rosewel</li>
+                    <li>Mojica, Vio Jianu</li>
+                    <li>Ordonio, Junela Melanie</li>
+                    <li>Pailden, Angel Mae</li>
+                    <li>Piduca, Christia Lynette</li>
+                    <li>Rabanal, John Gilbert</li>
+                    <li>Romero, Rico</li>
+                    <li>Roy, Gian Louisse</li>
+                    <li>Saberdo, Andrei Robert</li>
+                    <li>Salosa, Diana Jean</li>
+                    <li>Santos, Honeylet</li>
+                    <li>Tabien, Lian Mae</li>
+                    <li>Tangin, Christia</li>
+                </ul>
+            </div>
+            
+            <div class="team-section">
+                <h4>Volunteers</h4>
+                <ul>
+                    <li>Tuazon, Justin Philip - Web Developer and Webmaster</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <section id="faq">
@@ -2453,6 +2530,19 @@
             document.body.style.overflow = 'auto';
         }
 
+        // --- TEAM MODAL LOGIC ---
+        const teamModal = document.getElementById('teamModal');
+
+        function openTeamModal() {
+            teamModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTeamModal() {
+            teamModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         // --- GLOBAL EXTERNAL CLICK CLOSURE HANDLER ---
         window.addEventListener('click', function(e) {
             if (e.target === speakerModal) {
@@ -2460,6 +2550,9 @@
             }
             if (e.target === researchModal) {
                 closeResearchModal();
+            }
+            if (e.target === teamModal) {
+                closeTeamModal();
             }
         });
 
