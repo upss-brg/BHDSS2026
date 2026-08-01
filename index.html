@@ -391,16 +391,16 @@
         /* --- EVENT DETAILS BOX --- */
         .event-details {
             display: flex;
-            flex-wrap: wrap; /* Allows items to sit side-by-side, dropping to a new line on small screens */
-            gap: 2rem;       /* Space between the Date and Location */
+            flex-wrap: wrap;
+            gap: 2rem;      
             margin-top: 1.5rem;
             padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color, #e2e8f0); /* Subtle separator line */
+            border-top: 1px solid var(--border-color, #e2e8f0); 
         }
         
         .detail-item {
             display: flex;
-            align-items: center; /* Centers the icon with the text */
+            align-items: center;
             gap: 0.6rem;
             color: var(--text-dark);
             font-size: 1rem;
@@ -431,12 +431,12 @@
             gap: 2rem;
             overflow-x: auto;
             scroll-behavior: smooth;
-            scrollbar-width: none; /* Firefox */
-            padding: 1.5rem 0.5rem; /* Room for card elevations/shadows */
+            scrollbar-width: none; 
+            padding: 1.5rem 0.5rem;
             margin: -1.5rem -0.5rem;
         }
         .carousel-track::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
+            display: none; 
         }
         .carousel-card {
             flex: 0 0 calc(33.333% - 1.34rem);
@@ -722,7 +722,7 @@
             margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.8rem;
         }
         .research-abstract {
             color: var(--text-muted);
@@ -731,6 +731,7 @@
             margin-bottom: 2rem;
             flex-grow: 1;
             display: -webkit-box;
+            line-clamp: 3;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
@@ -876,7 +877,7 @@
             text-align: left !important;
         }
 
-        /* --- TEAM MODAL SPECIFIC STYLES --- */
+        /* --- TEAM ACCORDION SPECIFIC STYLES --- */
         .team-section {
             margin-bottom: 1.5rem;
             text-align: left;
@@ -908,6 +909,36 @@
             font-weight: bold;
             font-size: 1.2rem;
             line-height: 1;
+        }
+
+        /* --- TEAM ACCORDION STYLES --- */
+        .team-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+            margin-top: 1.5rem;
+        }
+
+        .team-accordion-inner {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-shadow: var(--shadow-sm);
+            padding: 2.5rem;
+            text-align: left;
+        }
+
+        .team-accordion-content.open {
+            max-height: 2500px;
+            opacity: 1;
+        }
+
+        @media (min-width: 768px) {
+            .team-accordion-content .team-section ul {
+                columns: 2;
+                column-gap: 3rem;
+            }
         }
 
         /* --- VENUE SECTION --- */
@@ -1237,8 +1268,8 @@
         /* --- TOAST NOTIFICATION --- */
         .toast-notification {
             position: fixed;
-            top: 100px; /* Clears your fixed nav */
-            right: -400px; /* Hidden off-screen initially */
+            top: 100px; 
+            right: -400px;
             width: 350px;
             background-color: var(--white);
             border-bottom: 4px solid var(--up-maroon);
@@ -1248,11 +1279,10 @@
             align-items: flex-start;
             padding: 1.2rem;
             gap: 1rem;
-            z-index: 2000; /* Keeps it above everything, including your modal */
+            z-index: 2000;
             transition: right 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Class added by JS to trigger the slide-in */
         .toast-notification.show {
             right: 24px;
         }
@@ -1299,10 +1329,9 @@
             color: var(--up-maroon);
         }
 
-        /* Mobile responsiveness */
         @media (max-width: 480px) {
             .toast-notification {
-                width: calc(100% - 40px); /* accounts for 20px padding on each side */
+                width: calc(100% - 40px);
                 right: -100%;
             }
             .toast-notification.show {
@@ -1361,7 +1390,6 @@
             border: 1px solid var(--border-color, #e2e8f0);
         }
 
-        /* Drop to 1 column on smaller screens */
         @media (max-width: 768px) {
             .compact-grid {
                 grid-template-columns: 1fr;
@@ -1415,7 +1443,6 @@
             color: var(--text-dark, #334155);
         }
 
-        /* Make breaks look lighter so talks stand out */
         .compact-list .c-break {
             color: var(--text-muted, #94a3b8);
             font-style: italic;
@@ -1574,10 +1601,10 @@
                         <div class="carousel-card">
                             <div class="speaker-card" onclick="openModal('sy')">
                                 <div class="speaker-image-container">
-                                    <img src="./images/sy.jpeg" alt="Alvin Duke Sy">
+                                    <img src="./images/sy.jpg" alt="Alvin Duke Sy">
                                 </div>
                                 <div class="speaker-info">
-                                    <h3>Alvin Duke Sy</h3>
+                                    <h3>Dr. Alvin Duke Sy</h3>
                                     <p>Assistant Professor</p>
                                     <div class="org"><i class="ph ph-buildings"></i>University of the Philippines Manila</div>
                                     <span class="click-hint">View Academic Profile <i class="ph ph-arrow-right"></i></span>
@@ -1702,7 +1729,7 @@
                         <div class="timeline-time"><i class="ph ph-clock"></i> 09:45 AM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
+                            <h4>Equivalence testing: Bioequivalence and beyond</h4>
                             <p>Presentation and talk from <b>Dr. Thomas Mathew</b>.</p>
                         </div>
                     </div>
@@ -1742,7 +1769,7 @@
                         <div class="timeline-time"><i class="ph ph-clock"></i> 01:30 PM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
+                            <h4>Cost-effectiveness analysis: A statistical overview</h4>
                             <p>Presentation and talk from <b>Dr. Thomas Mathew</b>.</p>
                         </div>
                     </div>
@@ -1803,7 +1830,7 @@
                         <div class="timeline-time"><i class="ph ph-clock"></i> 08:30 AM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
+                            <h4>Advanced Spatio-Temporal Models for Misaligned Data: Applications in Real-Time Disease Surveillance</h4>
                             <p>Presentation and talk from <b>Dr. Stephen Jun Villejo</b>.</p>
                         </div>
                     </div>
@@ -1835,15 +1862,15 @@
                         <div class="timeline-time"><i class="ph ph-clock"></i> 11:00 AM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
-                            <p>Presentation and talk from <b>Asst. Prof. Alvin Duke Sy</b>.</p>
+                            <h4>Three Questions, One Disease: Methodological Lessons from Rare Disease Research</h4>
+                            <p>Presentation and talk from <b>Dr. Alvin Duke Sy</b>.</p>
                         </div>
                     </div>
                     <div class="timeline-row">
                         <div class="timeline-time"><i class="ph ph-clock"></i> 11:30 AM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
+                            <h4>Multivariate Tolerance Regions for Clinical Laboratory Medicine: Regression-Based Approaches for Two-Sided and Mixed-Sided Reference Regions</h4>
                             <p>Presentation and talk from <b>Asst. Prof. Iana Michelle Garcia</b>.</p>
                         </div>
                     </div>
@@ -1867,7 +1894,7 @@
                         <div class="timeline-time"><i class="ph ph-clock"></i> 02:00 PM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
+                            <h4>Bayesian Decision Limits for Correlated Analytes: A Multivariate Regression Approach with Non-Informative and Conjugate Priors</h4>
                             <p>Presentation and talk from <b>Asst. Prof. Lian Mae Tabien</b>.</p>
                         </div>
                     </div>
@@ -1883,7 +1910,7 @@
                         <div class="timeline-time"><i class="ph ph-clock"></i> 02:45 PM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
+                            <h4>A Bayesian additive spatiotemporal model for young adolescent birth records in the Philippines </h4>
                             <p>Presentation and talk from <b>Asst. Prof. John Gilbert Rabanal</b>.</p>
                         </div>
                     </div>
@@ -1891,7 +1918,7 @@
                         <div class="timeline-time"><i class="ph ph-clock"></i> 03:15 PM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
+                            <h4>Causal Mediation Analysis for Time-Varying Exposures and Confounders in Longitudinal Biostatistical Data </h4>
                             <p>Presentation and talk from <b>Asst. Prof. John Eustaquio</b>.</p>
                         </div>
                     </div>
@@ -1970,29 +1997,81 @@
                 <div class="carousel-container">
                     <div id="research-track" class="carousel-track">
                         <div class="carousel-card">
-                            <div class="research-card" onclick="openResearchModal('placeholder')">
-                                <span class="research-tag"><i class="ph ph-pulse"></i> Placeholder</span>
-                                <h3>Research Work Title</h3>
-                                <p class="research-authors"><i class="ph ph-user"></i> Research Work Authors</p>
-                                <p class="research-abstract">To follow.</p>
+                            <div class="research-card" onclick="openResearchModal('mathew-1')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Hypothesis Testing</span>
+                                <h3>Equivalence testing: Bioequivalence and beyond</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <u>Thomas Mathew</u></p>
+                                <p class="research-abstract">In hypothesis testing problems, the null hypothesis is often a statement of equality. The two-sample t-test is a classic example where the null hypothesis states that two population means are equal. In some applications on the comparison of two means, it is more appropriate to test if the two means are equivalent; i.e., if they are close according to a specified threshold. Many applications call for testing equivalence, rather than equality, where the statement of equivalence is the alternative hypothesis so that equivalence is concluded by rejecting the null hypothesis. In the talk I will give a few applications where equivalence testing is required. These will include testing bioequivalence, testing the equivalence of several normal means relevant to the comparison of several treatments in a clinical trial, testing the equivalence of covariance matrices, comparing drug dissolution profiles, and equivalence testing for food safety assessment. All of the problems will be motivated and illustrated using practical applications.</p>
                                 <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
                             </div>
                         </div>
                         <div class="carousel-card">
-                            <div class="research-card" onclick="openResearchModal('placeholder')">
-                                <span class="research-tag"><i class="ph ph-pulse"></i> Placeholder</span>
-                                <h3>Research Work Title</h3>
-                                <p class="research-authors"><i class="ph ph-user"></i> Research Work Authors</p>
-                                <p class="research-abstract">To follow.</p>
+                            <div class="research-card" onclick="openResearchModal('mathew-2')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Health Economics</span>
+                                <h3>Cost-effectiveness analysis: A statistical overview</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <u>Thomas Mathew</u></p>
+                                <p class="research-abstract">Identifying treatments or interventions that are cost-effective (more effective at a reasonable cost) is clearly important in health policy decision making, especially in the allocation of health care resources. Various measures of cost-effectiveness that are informative, intuitive and simple to explain have been suggested in the literature. Popular and widely used measures include the incremental cost-effectiveness ratio (ICER), defined as the ratio between the difference of average costs and the difference of average effectiveness in two populations receiving two treatments. The ICER is interpreted as the additional cost per unit of effectiveness gained. Yet another measure is the incremental net benefit (INB), which is the difference between the incremental cost and the incremental effectiveness after multiplying the latter with a “willingness-to-pay” amount. In the talk, I will provide a selected review of the statistical criteria and methodologies for cost-effectiveness analysis. In particular, some of the recently introduced probabilistic criteria will be discussed and examples will be given.</p>
                                 <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
                             </div>
                         </div>
                         <div class="carousel-card">
-                            <div class="research-card" onclick="openResearchModal('placeholder')">
-                                <span class="research-tag"><i class="ph ph-pulse"></i> Placeholder</span>
-                                <h3>Research Work Title</h3>
-                                <p class="research-authors"><i class="ph ph-user"></i> Research Work Authors</p>
-                                <p class="research-abstract">To follow.</p>
+                            <div class="research-card" onclick="openResearchModal('villejo')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Spatio-Temporal Modeling</span>
+                                <h3>Advanced Spatio-Temporal Models for Misaligned Data: Applications in Real-Time Disease Surveillance</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <u>Stephen Jun Villejo</u></p>
+                                <p class="research-abstract">This talk comprises two major parts, both centred around the overarching theme of real-time disease surveillance. The key statistical challenge I address is the spatial and temporal misalignment of the data.
+
+                                The first part considers the problem of estimating a latent spatially continuous process from aggregated outcome data. I adopt a block aggregation framework that separates the latent process model from the sampling model, and estimate it using a linearised version of Integrated Nested Laplace Approximation (INLA). I illustrate this approach by predicting SARS-CoV-2 viral load, measured as the number of gene copies, over arbitrary areal configurations in the United Kingdom using aggregated data from the catchment areas of a sparse network of sewage treatment works. To address the difficulty arising from the fact that log-Gaussian outcomes are not closed under aggregation, I use moment matching to estimate the sampling model parameters and propose an iterative procedure to adjust the non-linear predictor expression and the scaling of the likelihood precision. This modelling approach provides a coherent framework for inference, prediction over new areal units, and spatial disaggregation.
+
+                                The second part of my talk focuses on temporal misalignment in lagged covariate-response relationships, particularly in settings where the response variable is observed at a lower frequency than the predictors. In disease surveillance, for example, clinical outcomes may be recorded weekly and forecast at a one-week horizon, whereas environmental indicators such as pollution levels and wastewater viral loads are available daily. To address this, I extend the Mixed-Data Sampling framework to a spatial setting through a Spatial Distributed-Lag Mixed-Data Sampling (SDL-MIDAS) model. I discuss an efficient Bayesian computational tool for fitting these models, together with an accompanying R package that I am currently developing. An application from Wales shows that SDL-MIDAS models improve forecasts of weekly hospital admissions and positivity rates using daily wastewater signals as predictors.
+
+                                Overall, this talk discusses flexible and principled approaches for handling spatial and temporal misalignment, with important applications in integrating environmental surveillance data into public health monitoring systems.
+                                </p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="carousel-card">
+                            <div class="research-card" onclick="openResearchModal('sy')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Rare Diseases</span>
+                                <h3>Three Questions, One Disease: Methodological Lessons from Rare Disease Research</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <u>Alvin Duke Sy</u></p>
+                                <p class="research-abstract">Rare disease research presents methodological challenges that are seldom illustrated in methodological textbooks. Using a single-center Philippine gestational trophoblastic disease registry as a case study, this lecture reflects on a series of analytical decisions made while investigating time to remission under the constraints of limited data. Rather than comparing statistical methods exhaustively, the presentation highlights how different approaches addressed different questions encountered during the course of the research, and discusses the methodological considerations that informed those choices. The lecture is intended for researchers interested in the practical application of statistical methods in rare disease and small-sample clinical research.</p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="carousel-card">
+                            <div class="research-card" onclick="openResearchModal('garcia')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Tolerance Regions</span>
+                                <h3>Multivariate Tolerance Regions for Clinical Laboratory Medicine: Regression-Based Approaches for Two-Sided and Mixed-Sided Reference Regions</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <u>Iana Michelle Garcia</u></p>
+                                <p class="research-abstract">In clinical laboratory medicine, analyte measurements are commonly evaluated using univariate reference intervals. However, when multiple analytes are required for diagnosis, applying separate univariate reference intervals increases the occurrence of false-positive results. Multivariate reference regions (MRRs) are more appropriate in this context because they account for the cross-correlations among analytes. Compared with conventional ellipsoidal MRRs, rectangular MRRs are easier to interpret and facilitate the identification of outlying analyte measurements. Prediction- and tolerance- based approaches have been proposed for constructing rectangular MRRs, with tolerance regions possessing a multiple-use property that makes them suitable for repeated application across multiple patients. In addition, analyte reference limits may be two-sided or one-sided depending on the biomarker and disease context. This paper focuses on regression-based rectangular MRRs constructed using multivariate tolerance criteria while accounting for covariate information. Specifically, we present regression-based multivariate tolerance regions, multivariate central tolerance regions, and mixed-sided multivariate tolerance regions. The performance of these proposed approaches is evaluated through simulation studies, and results show that all methods achieve coverage probabilities close to the nominal level. Finally, we apply the proposed approaches to a clinical laboratory dataset.</p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="carousel-card">
+                            <div class="research-card" onclick="openResearchModal('tabien')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Decision Limits</span>
+                                <h3>Bayesian Decision Limits for Correlated Analytes: A Multivariate Regression Approach with Non-Informative and Conjugate Priors</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <span><u>Lian Mae Tabien</u>, Michael Daniel Lucagbo</span></p>
+                                <p class="research-abstract">Decision limits play a crucial role in laboratory medicine by guiding diagnostic and clinical decision-making processes. Unlike reference intervals, decision limits are often one-sided thresholds, typically expressed as prediction or tolerance intervals. However, in complex diagnoses requiring multiple correlated analyte measurements, constructing separate univariate intervals may increase false positives. It is recommended to construct multivariate statistical regions to account for the cross- correlations among analytes. Hence, this research proposes a Bayesian multivariate regression framework for constructing combined statistical decision limits that incorporates covariates (e.g., age and sex). The methodology operates under a multivariate normal model and allows for prior specification using both non-informative and conjugate priors. Results from simulation studies indicate that limits derived under non-informative priors have highly satisfactory frequentist properties and outperform benchmark methods even under weak cross-correlations. In contrast, limits based on conjugate priors tend to underperform in small samples due to prior influence, although this effect diminishes with larger sample sizes. The proposed method is also computationally efficient, producing decision limits in under a minute, highlighting its practical feasibility for clinical application. Overall, this Bayesian multivariate approach provides a principled and adaptable framework for generating accurate decision limits in complex diagnostic contexts.</p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="carousel-card">
+                            <div class="research-card" onclick="openResearchModal('rabanal')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Spatio-Temporal Modeling</span>
+                                <h3>A Bayesian additive spatiotemporal model for young adolescent birth records in the Philippines </h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <span><u>John Gilbert Rabanal</u>, Welfredo Patungan</span></p>
+                                <p class="research-abstract">Quantitative studies about young adolescent pregnancy in the Philippines had been done through the analysis of survey data. Official birth records provide a more advantageous data source in examining the dynamics of the young adolescent pregnancy due to regular recording of births. In this study, we propose a statistical methodology utilizing official birth records through a Bayesian hierarchical framework. The method accounts for the unique features of the aggregated young adolescent birth counts such as being a spatiotemporal data with known upper bounds and being characterized by the presence of excess zero counts. Our framework consists of the binomial hurdle model and Poisson hurdle model with offset, the Leroux model for spatial effects (Leroux et al., 2000), and an additive nonparametric trend model for temporal effects (Knorr-Held, 2000). We analyze and assess the performance of the proposed models using the quarterly data on young adolescent birth counts in Luzon, Philippines from 2006 to 2019 via Hamiltonian Monte Carlo. Areas that are more prone to observe a young adolescent birth and a temporal pattern about the occurrence of young adolescent births are identified.</p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="carousel-card">
+                            <div class="research-card" onclick="openResearchModal('eustaquio')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Longitudinal Methods</span>
+                                <h3>Causal Mediation Analysis for Time-Varying Exposures and Confounders in Longitudinal Biostatistical Data</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <u>John Eustaquio</u></p>
+                                <p class="research-abstract">Understanding the causal mechanisms behind biomedical research oftenly requires detaching how exposures exert their effects on health outcomes over time through intermediate processes. However, in longitudinal studies, both exposures and confounders frequently vary with time which creates a complex feedback structures that would make standard mediation approaches invalid. This study developed a novel framework for causal mediation analysis in longitudinal biostatistical data with time-varying exposures and confounders by integrating marginal structural models (MSM) with structural nested models (SNM), and targeted maximum likelihood estimation (TMLE) in a single causal inference paradigm. A flexible estimation strategy was proposed that utilizes machine learning–based nuisance estimation to improve the robustness and efficiency but still maintaining valid causal interpretation under realistic longitudinal data structures. Simulation studies demonstrated that the proposed method provides unbiased estimates of direct and indirect effects even under complex time-dependent confounders. The methodology is applied to simulated data mimicking a large cohort study of HIV treatment dynamics, where the causal pathways linking antiretroviral therapy adherence, immune response, and virologic suppression are examined. The results shown substantial time- varying mediation effects which highlight the importance of accounting for temporal effect in biomedical causal inference.</p>
                                 <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
                             </div>
                         </div>
@@ -2062,57 +2141,58 @@
                 </div>
             </div>
 
-            <!-- Meet the Team Button -->
-            <div style="text-align: center; margin-top: 4rem;" class="fade-up delay-3">
-                <button class="btn" onclick="openTeamModal()"><i class="ph ph-users-three"></i> Meet the Team</button>
+            <!-- Meet the Team Button & Accordion -->
+            <div style="text-align: center; margin-top: 4rem; max-width: 850px; margin-left: auto; margin-right: auto;" class="fade-up delay-3">
+                
+                <button class="btn" onclick="toggleTeamAccordion()">
+                    <i class="ph ph-users-three"></i> Meet the Team
+                </button>
+                
+                <!-- Accordion Section -->
+                <div id="teamAccordion" class="team-accordion-content">
+                    <div class="team-accordion-inner">
+                        <div class="team-section">
+                            <h4>UPSS Biostatistics Research Group</h4>
+                            <ul>
+                                <li>Alas, Rose Anne</li>
+                                <li>Antonio, Czarinne Antoinette</li>
+                                <li>Borlongan, Martin Augustine</li>
+                                <li>Cambel, Sheyenne</li>
+                                <li>Catulpos, Ruselle</li>
+                                <li>Centillas, Joanna Rose</li>
+                                <li>de Jesus, Nicco</li>
+                                <li>Eustaquio, John</li>
+                                <li>Garcia, Iana Michelle</li>
+                                <li>Lucagbo, Michael Daniel</li>
+                                <li>Magadia, Joselito</li>
+                                <li>Manapat, George Ringo</li>
+                                <li>Matala, Shaine Rosewel</li>
+                                <li>Mojica, Vio Jianu</li>
+                                <li>Ordonio, Junela Melanie</li>
+                                <li>Pailden, Angel Mae</li>
+                                <li>Piduca, Christia Lynette</li>
+                                <li>Rabanal, John Gilbert</li>
+                                <li>Romero, Rico</li>
+                                <li>Roy, Gian Louisse</li>
+                                <li>Saberdo, Andrei Robert</li>
+                                <li>Salosa, Diana Jean</li>
+                                <li>Santos, Honeylet</li>
+                                <li>Tabien, Lian Mae</li>
+                                <li>Tangin, Christia</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="team-section">
+                            <h4>Volunteers</h4>
+                            <ul>
+                                <li>Tuazon, Justin Philip - Web Developer and Webmaster</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </section>
-    </div>
-
-    <!-- Team Modal -->
-    <div id="teamModal" class="modal-overlay">
-        <div class="modal-content" style="text-align: left;">
-            <span class="modal-close" onclick="closeTeamModal()"><i class="ph ph-x"></i></span>
-            <h3 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center; color: var(--up-maroon); font-family: var(--font-serif);">Meet the Team</h3>
-            
-            <div class="team-section">
-                <h4>UPSS Biostatistics Research Group</h4>
-                <ul>
-                    <li>Alas, Rose Anne</li>
-                    <li>Antonio, Czarinne Antoinette</li>
-                    <li>Borlongan, Martin Augustine</li>
-                    <li>Cambel, Sheyenne</li>
-                    <li>Catulpos, Ruselle</li>
-                    <li>Centillas, Joanna Rose</li>
-                    <li>de Jesus, Nicco</li>
-                    <li>Eustaquio, John</li>
-                    <li>Garcia, Iana Michelle</li>
-                    <li>Lucagbo, Michael Daniel</li>
-                    <li>Magadia, Joselito</li>
-                    <li>Manapat, George Ringo</li>
-                    <li>Matala, Shaine Rosewel</li>
-                    <li>Mojica, Vio Jianu</li>
-                    <li>Ordonio, Junela Melanie</li>
-                    <li>Pailden, Angel Mae</li>
-                    <li>Piduca, Christia Lynette</li>
-                    <li>Rabanal, John Gilbert</li>
-                    <li>Romero, Rico</li>
-                    <li>Roy, Gian Louisse</li>
-                    <li>Saberdo, Andrei Robert</li>
-                    <li>Salosa, Diana Jean</li>
-                    <li>Santos, Honeylet</li>
-                    <li>Tabien, Lian Mae</li>
-                    <li>Tangin, Christia</li>
-                </ul>
-            </div>
-            
-            <div class="team-section">
-                <h4>Volunteers</h4>
-                <ul>
-                    <li>Tuazon, Justin Philip - Web Developer and Webmaster</li>
-                </ul>
-            </div>
-        </div>
     </div>
 
     <section id="faq">
@@ -2417,7 +2497,7 @@
                 role: 'Professor',
                 org: 'University of Maryland Baltimore County',
                 img: './images/thomas.jpg',
-                bio: 'To follow.'
+                bio: 'Thomas Mathew is Professor, Department of Mathematics & Statistics, University of Maryland Baltimore County. He earned his PhD in statistics from the Indian Statistical Institute in 1983, and has been a faculty member at the University of Maryland since 1985. His research interests are on both methodological and applied topics, including cost-effectiveness analysis, equivalence testing, exposure data analysis, meta-analysis, mixed and random effects models, and tolerance intervals. He is the co-author of two books: Statistical Tests in Mixed Linear Models and Statistical Tolerance Regions: Theory, Applications and Computation, both published by Wiley. He has served on the Editorial Boards of several journals, and is currently an Associate Editor of the Journal of Multivariate Analysis and Sankhya. Dr. Mathew is a Fellow of the American Statistical Association, and a Fellow of the Institute of Mathematical Statistics. He is a two-time winner of the American Statistical Association’s Youden Award in Interlaboratory Testing. He has also been appointed as Presidential Research Professor at his campus.'
             },
             'kifle': {
                 name: 'Dr. Yehenew Kifle',
@@ -2431,7 +2511,7 @@
                 role: 'Research Associate',
                 org: 'Imperial College London',
                 img: './images/villejo.png',
-                bio: 'To follow.'
+                bio: 'Stephen Jun Villejo is a Postdoctoral Research Associate in Biostatistics at Imperial College London and a member of the Environment and Health Statistics Group within the Medical Research Council Centre for Environment & Health. His current research, funded by UK Research and Innovation, focuses on advancing spatio-temporal methods motivated by wastewater-based epidemiology. He works with collaborators from the UK Health Security Agency and Public Health Wales to integrate these models into a real-time public health surveillance system. He completed his PhD in Statistics at the University of Glasgow and previously served as an Assistant Professor at the UP School of Statistics. His research interests include methods for spatially and temporally misaligned data, data fusion models, and uncertainty propagation in multi-stage Bayesian models.'
             },
             'lucagbo': {
                 name: 'Dr. Michael Daniel Lucagbo',
@@ -2444,46 +2524,88 @@
                 name: 'Alvin Duke Sy',
                 role: 'Assistant Professor',
                 org: 'University of the Philippines Manila',
-                img: './images/sy.jpeg',
-                bio: 'To follow.'
+                img: './images/sy.jpg',
+                bio: 'Dr. Alvin Duke R. Sy is a nurse-biostatistician and Assistant Professor at the Department of Epidemiology and Biostatistics, College of Public Health, University of the Philippines Manila.<br><br>He earned his Bachelor of Science in Nursing from the UP College of Nursing, placing eighth in the 2011 Philippine Nurse Licensure Examination, and has worked as a staff nurse at the Philippine General Hospital before pursuing graduate training in biostatistics and clinical research. He holds a Master of Science in Public Health (Biostatistics) and a Doctor of Philosophy in Health Sciences by Research, with a concentration in Clinical Research, from the University of the Philippines Manila.<br><br>His research focuses on statistical methods for clinical and public health research, particularly survival analysis, prognostic modeling, biomarker evaluation, and maternal and reproductive health. He also teaches courses in biostatistics, epidemiology, and research methods, and serves as a statistical consultant for clinical and public health research.'
             },
             'garcia': {
                 name: 'Iana Michelle Garcia',
                 role: 'Assistant Professor',
                 org: 'University of the Philippines Diliman',
                 img: './images/garcia.jpg',
-                bio: 'To follow.'
+                bio: 'Iana Michelle Garcia is an Assistant Professor at the University of the Philippines School of Statistics. She earned her Master of Science in Statistics from the same institution and was a recipient of the Accelerated Science and Technology Human Resource Development Program (ASTHRDP) scholarship from the Department of Science and Technology – Science Education Institute (DOST-SEI). She is a member of the Pi Gamma Mu International Honor Society.<br><br>Her research interests include biostatistics, computational statistics, tolerance regions, and statistical machine learning. She has co-authored a published work on tolerance regions and continues to explore their applications in both theoretical and applied contexts. She has presented her research at the International Conference on Advanced Machine Learning and Data Science (AMLDS) in Tokyo, Japan; the 16th National Convention on Statistics (NCS) organized by the Philippine Statistics Authority (PSA); and the 33rd International Biometric Conference in Seoul, South Korea.<br><br>In her teaching and extension activities, she has handled courses in programming, computational statistics, and statistical theory, and has served as a resource person for R programming training programs.'
             },
             'tabien': {
                 name: 'Lian Mae Tabien',
                 role: 'Assistant Professor',
                 org: 'University of the Philippines Diliman',
                 img: './images/tabien.jpg',
-                bio: 'To follow.'
+                bio: 'Lian Mae T. Tabien is an Assistant Professor at the University of the Philippines Diliman - School of Statistics. She graduated Summa Cum Laude with a Bachelor of Science in Statistics in 2019 and earned her Master of Science in Statistics in 2024 in the same university. She teaches foundational courses in statistics, primarily for undergraduate students in the school. Her research interests include biostatistics, with a focus on laboratory medicine, and multivariate analysis.'
             },
             'rabanal': {
                 name: 'John Gilbert Rabanal',
                 role: 'Assistant Professor',
                 org: 'University of the Philippines Diliman',
                 img: './images/rabanal.jpg',
-                bio: 'To follow.'
+                bio: 'John Gilbert Rabanal is currently serving as assistant professor and deputy director for facilities and resource management at the UP School of Statistics. He earned his Bachelor of Science in Statistics degree in 2019, graduating Cum Laude. He also obtained his Master of Science in Statistics degree in January 2025 from the same institution. He teaches a diverse range of courses, from elementary statistics and probability theory to matrix theory and Bayesian inference. His research interests include Bayesian statistics, spatiotemporal analysis, categorical data analysis, and applications of statistical methods in the social sciences. He has actively contributed to the academic community through presentations at both local and international conferences.'
             },
             'eustaquio': {
                 name: 'John Eustaquio',
                 role: 'Assistant Professor',
                 org: 'University of the Philippines Diliman',
                 img: './images/eustaquio.jpg',
-                bio: 'To follow.'
+                bio: 'John De Guzman Eustaquio is an Assistant Professor at the University of the Philippines School of Statistics. He holds master’s degrees in Statistics from the University of Maryland, Baltimore County and the University of the Philippines Diliman where he is currently pursuing his PhD in Data Science. His research interests include survival analysis, meta-analysis, biostatistics, computational statistics, labor and employment statistics, and customer satisfaction and behavior. He has published research on clustered survival models, stochastic frontier analysis, demographic behavior, regional development, and machine learning applications in health research. In addition to his academic work, he has served as a statistician, survey methodologist, and Computer-Assisted Personal Interviewing instrument developer for numerous government agencies and national research projects. He is a member of several professional organizations, including the Philippine Statistical Association, International Statistical Institute, International Association for Statistical Computing, and International Biometric Society.'
             }
         };
 
         // Pre-fetched Research Abstract Storage
         const researchData = {
-            'placeholder': {
-                tag: 'Placeholder',
-                title: 'Research Work Title',
-                authors: 'Research Work Authors',
-                abstract: 'To follow.'
+            'mathew-1': {
+                tag: 'Hypothesis Testing',
+                title: 'Equivalence testing: Bioequivalence and beyond',
+                authors: 'Thomas Mathew',
+                abstract: 'In hypothesis testing problems, the null hypothesis is often a statement of equality. The two-sample t-test is a classic example where the null hypothesis states that two population means are equal. In some applications on the comparison of two means, it is more appropriate to test if the two means are equivalent; i.e., if they are close according to a specified threshold. Many applications call for testing equivalence, rather than equality, where the statement of equivalence is the alternative hypothesis so that equivalence is concluded by rejecting the null hypothesis. In the talk I will give a few applications where equivalence testing is required. These will include testing bioequivalence, testing the equivalence of several normal means relevant to the comparison of several treatments in a clinical trial, testing the equivalence of covariance matrices, comparing drug dissolution profiles, and equivalence testing for food safety assessment. All of the problems will be motivated and illustrated using practical applications.'
+            },
+            'mathew-2': {
+                tag: 'Health Economics',
+                title: 'Cost-effectiveness analysis: A statistical overview',
+                authors: 'Thomas Mathew',
+                abstract: 'Identifying treatments or interventions that are cost-effective (more effective at a reasonable cost) is clearly important in health policy decision making, especially in the allocation of health care resources. Various measures of cost-effectiveness that are informative, intuitive and simple to explain have been suggested in the literature. Popular and widely used measures include the incremental cost-effectiveness ratio (ICER), defined as the ratio between the difference of average costs and the difference of average effectiveness in two populations receiving two treatments. The ICER is interpreted as the additional cost per unit of effectiveness gained. Yet another measure is the incremental net benefit (INB), which is the difference between the incremental cost and the incremental effectiveness after multiplying the latter with a “willingness-to-pay” amount. In the talk, I will provide a selected review of the statistical criteria and methodologies for cost-effectiveness analysis. In particular, some of the recently introduced probabilistic criteria will be discussed and examples will be given.'
+            },
+            'villejo': {
+                tag: 'Spatio-Temporal Modeling',
+                title: 'Advanced Spatio-Temporal Models for Misaligned Data: Applications in Real-Time Disease Surveillance',
+                authors: 'Stephen Jun Villejo',
+                abstract: 'This talk comprises two major parts, both centred around the overarching theme of real-time disease surveillance. The key statistical challenge I address is the spatial and temporal misalignment of the data.<br><br>The first part considers the problem of estimating a latent spatially continuous process from aggregated outcome data. I adopt a block aggregation framework that separates the latent process model from the sampling model, and estimate it using a linearised version of Integrated Nested Laplace Approximation (INLA). I illustrate this approach by predicting SARS-CoV-2 viral load, measured as the number of gene copies, over arbitrary areal configurations in the United Kingdom using aggregated data from the catchment areas of a sparse network of sewage treatment works. To address the difficulty arising from the fact that log-Gaussian outcomes are not closed under aggregation, I use moment matching to estimate the sampling model parameters and propose an iterative procedure to adjust the non-linear predictor expression and the scaling of the likelihood precision. This modelling approach provides a coherent framework for inference, prediction over new areal units, and spatial disaggregation.<br><br>The second part of my talk focuses on temporal misalignment in lagged covariate-response relationships, particularly in settings where the response variable is observed at a lower frequency than the predictors. In disease surveillance, for example, clinical outcomes may be recorded weekly and forecast at a one-week horizon, whereas environmental indicators such as pollution levels and wastewater viral loads are available daily. To address this, I extend the Mixed-Data Sampling framework to a spatial setting through a Spatial Distributed-Lag Mixed-Data Sampling (SDL-MIDAS) model. I discuss an efficient Bayesian computational tool for fitting these models, together with an accompanying R package that I am currently developing. An application from Wales shows that SDL-MIDAS models improve forecasts of weekly hospital admissions and positivity rates using daily wastewater signals as predictors.<br><br>Overall, this talk discusses flexible and principled approaches for handling spatial and temporal misalignment, with important applications in integrating environmental surveillance data into public health monitoring systems.'
+            },
+            'sy': {
+                tag: 'Rare Diseases',
+                title: 'Three Questions, One Disease: Methodological Lessons from Rare Disease Research',
+                authors: 'Alvin Duke Sy',
+                abstract: 'Rare disease research presents methodological challenges that are seldom illustrated in methodological textbooks. Using a single-center Philippine gestational trophoblastic disease registry as a case study, this lecture reflects on a series of analytical decisions made while investigating time to remission under the constraints of limited data. Rather than comparing statistical methods exhaustively, the presentation highlights how different approaches addressed different questions encountered during the course of the research, and discusses the methodological considerations that informed those choices. The lecture is intended for researchers interested in the practical application of statistical methods in rare disease and small-sample clinical research.'
+            },
+            'garcia': {
+                tag: 'Tolerance Regions',
+                title: 'Multivariate Tolerance Regions for Clinical Laboratory Medicine: Regression-Based Approaches for Two-Sided and Mixed-Sided Reference Regions',
+                authors: 'Iana Michelle Garcia',
+                abstract: 'In clinical laboratory medicine, analyte measurements are commonly evaluated using univariate reference intervals. However, when multiple analytes are required for diagnosis, applying separate univariate reference intervals increases the occurrence of false-positive results. Multivariate reference regions (MRRs) are more appropriate in this context because they account for the cross-correlations among analytes. Compared with conventional ellipsoidal MRRs, rectangular MRRs are easier to interpret and facilitate the identification of outlying analyte measurements. Prediction- and tolerance- based approaches have been proposed for constructing rectangular MRRs, with tolerance regions possessing a multiple-use property that makes them suitable for repeated application across multiple patients. In addition, analyte reference limits may be two-sided or one-sided depending on the biomarker and disease context. This paper focuses on regression-based rectangular MRRs constructed using multivariate tolerance criteria while accounting for covariate information. Specifically, we present regression-based multivariate tolerance regions, multivariate central tolerance regions, and mixed-sided multivariate tolerance regions. The performance of these proposed approaches is evaluated through simulation studies, and results show that all methods achieve coverage probabilities close to the nominal level. Finally, we apply the proposed approaches to a clinical laboratory dataset.'
+            },
+            'rabanal': {
+                tag: 'Spatio-Temporal Modeling',
+                title: 'A Bayesian additive spatiotemporal model for young adolescent birth records in the Philippines',
+                authors: 'John Gilbert Rabanal, Welfredo Patungan',
+                abstract: 'Quantitative studies about young adolescent pregnancy in the Philippines had been done through the analysis of survey data. Official birth records provide a more advantageous data source in examining the dynamics of the young adolescent pregnancy due to regular recording of births. In this study, we propose a statistical methodology utilizing official birth records through a Bayesian hierarchical framework. The method accounts for the unique features of the aggregated young adolescent birth counts such as being a spatiotemporal data with known upper bounds and being characterized by the presence of excess zero counts. Our framework consists of the binomial hurdle model and Poisson hurdle model with offset, the Leroux model for spatial effects (Leroux et al., 2000), and an additive nonparametric trend model for temporal effects (Knorr-Held, 2000). We analyze and assess the performance of the proposed models using the quarterly data on young adolescent birth counts in Luzon, Philippines from 2006 to 2019 via Hamiltonian Monte Carlo. Areas that are more prone to observe a young adolescent birth and a temporal pattern about the occurrence of young adolescent births are identified.'
+            },
+            'tabien': {
+                tag: 'Decision Limits',
+                title: 'Bayesian Decision Limits for Correlated Analytes: A Multivariate Regression Approach with Non-Informative and Conjugate Priors',
+                authors: 'Lian Mae Tabien, Michael Daniel Lucagbo',
+                abstract: 'Decision limits play a crucial role in laboratory medicine by guiding diagnostic and clinical decision-making processes. Unlike reference intervals, decision limits are often one-sided thresholds, typically expressed as prediction or tolerance intervals. However, in complex diagnoses requiring multiple correlated analyte measurements, constructing separate univariate intervals may increase false positives. It is recommended to construct multivariate statistical regions to account for the cross- correlations among analytes. Hence, this research proposes a Bayesian multivariate regression framework for constructing combined statistical decision limits that incorporates covariates (e.g., age and sex). The methodology operates under a multivariate normal model and allows for prior specification using both non-informative and conjugate priors. Results from simulation studies indicate that limits derived under non-informative priors have highly satisfactory frequentist properties and outperform benchmark methods even under weak cross-correlations. In contrast, limits based on conjugate priors tend to underperform in small samples due to prior influence, although this effect diminishes with larger sample sizes. The proposed method is also computationally efficient, producing decision limits in under a minute, highlighting its practical feasibility for clinical application. Overall, this Bayesian multivariate approach provides a principled and adaptable framework for generating accurate decision limits in complex diagnostic contexts.'
+            },
+            'eustaquio': {
+                tag: 'Longitudinal Methods',
+                title: 'Causal Mediation Analysis for Time-Varying Exposures and Confounders in Longitudinal Biostatistical Data',
+                authors: 'John Eustaquio',
+                abstract: 'Understanding the causal mechanisms behind biomedical research oftenly requires detaching how exposures exert their effects on health outcomes over time through intermediate processes. However, in longitudinal studies, both exposures and confounders frequently vary with time which creates a complex feedback structures that would make standard mediation approaches invalid. This study developed a novel framework for causal mediation analysis in longitudinal biostatistical data with time-varying exposures and confounders by integrating marginal structural models (MSM) with structural nested models (SNM), and targeted maximum likelihood estimation (TMLE) in a single causal inference paradigm. A flexible estimation strategy was proposed that utilizes machine learning–based nuisance estimation to improve the robustness and efficiency but still maintaining valid causal interpretation under realistic longitudinal data structures. Simulation studies demonstrated that the proposed method provides unbiased estimates of direct and indirect effects even under complex time-dependent confounders. The methodology is applied to simulated data mimicking a large cohort study of HIV treatment dynamics, where the causal pathways linking antiretroviral therapy adherence, immune response, and virologic suppression are examined. The results shown substantial time- varying mediation effects which highlight the importance of accounting for temporal effect in biomedical causal inference.'
             }
         };
 
@@ -2498,7 +2620,7 @@
             document.getElementById('modal-name').innerText = data.name;
             document.getElementById('modal-role').innerText = data.role;
             document.getElementById('modal-org').innerText = data.org;
-            document.getElementById('modal-bio').innerText = data.bio;
+            document.getElementById('modal-bio').innerHTML = data.bio;
 
             speakerModal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -2519,7 +2641,7 @@
             document.getElementById('res-modal-tag').innerHTML = `<i class="ph ph-tag"></i> ${data.tag}`;
             document.getElementById('res-modal-title').innerText = data.title;
             document.getElementById('res-modal-authors').innerHTML = `<i class="ph ph-users"></i> ${data.authors}`;
-            document.getElementById('res-modal-abstract').innerText = data.abstract;
+            document.getElementById('res-modal-abstract').innerHTML = data.abstract;
 
             researchModal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -2530,17 +2652,19 @@
             document.body.style.overflow = 'auto';
         }
 
-        // --- TEAM MODAL LOGIC ---
-        const teamModal = document.getElementById('teamModal');
-
-        function openTeamModal() {
-            teamModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeTeamModal() {
-            teamModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+        // --- TEAM ACCORDION LOGIC ---
+        function toggleTeamAccordion() {
+            const accordion = document.getElementById("teamAccordion");
+            
+            // Toggle the 'open' class
+            accordion.classList.toggle("open");
+            
+            // Smooth scroll down slightly if it's opening
+            if (accordion.classList.contains("open")) {
+                setTimeout(() => {
+                    accordion.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 350); // Matches the 0.35s transition duration from your CSS
+            }
         }
 
         // --- GLOBAL EXTERNAL CLICK CLOSURE HANDLER ---
@@ -2550,9 +2674,6 @@
             }
             if (e.target === researchModal) {
                 closeResearchModal();
-            }
-            if (e.target === teamModal) {
-                closeTeamModal();
             }
         });
 
