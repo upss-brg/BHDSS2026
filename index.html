@@ -1625,6 +1625,19 @@
                             </div>
                         </div>
                         <div class="carousel-card">
+                            <div class="speaker-card" onclick="openModal('javelosa')">
+                                <div class="speaker-image-container">
+                                    <img src="./images/javelosa.png" alt="Mark Anthony Javelosa">
+                                </div>
+                                <div class="speaker-info">
+                                    <h3>Mark Anthony Javelosa</h3>
+                                    <p>Biostatistician and Senior Lecturer</p>
+                                    <div class="org"><i class="ph ph-buildings"></i>University of the Philippines Diliman</div>
+                                    <span class="click-hint">View Academic Profile <i class="ph ph-arrow-right"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-card">
                             <div class="speaker-card" onclick="openModal('tabien')">
                                 <div class="speaker-image-container">
                                     <img src="./images/tabien.jpg" alt="Lian Mae Tabien">
@@ -1745,7 +1758,7 @@
                         <div class="timeline-time"><i class="ph ph-clock"></i> 11:00 AM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
+                            <h4>Modeling Malaria Risk Near a Hydroelectric Dam: Challenges in Clustered Survival Data</h4>
                             <p>Presentation and talk from <b>Dr. Yehenew Kifle</b>.</p>
                         </div>
                     </div>
@@ -1785,7 +1798,7 @@
                         <div class="timeline-time"><i class="ph ph-clock"></i> 02:45 PM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
+                            <h4>Combining Evidence Across Heterogeneous Studies: Local Power of Exact Tests for a Common Mean</h4>
                             <p>Presentation and talk from <b>Dr. Yehenew Kifle</b>.</p>
                         </div>
                     </div>
@@ -1846,7 +1859,7 @@
                         <div class="timeline-time"><i class="ph ph-clock"></i> 09:45 AM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
+                            <h4>Simultaneous Prediction Intervals: A New Perspective on Assessing One’s Health</h4>
                             <p>Presentation and talk from <b>Dr. Michael Daniel Lucagbo</b>.</p>
                         </div>
                     </div>
@@ -1886,8 +1899,8 @@
                         <div class="timeline-time"><i class="ph ph-clock"></i> 01:30 PM</div>
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
-                            <h4>Title to be announced</h4>
-                            <p>Presentation and talk from <b>Speaker</b>.</p>
+                            <h4>The Data Behind the Drugstore: Mapping Pharma Performance in the Philippines</h4>
+                            <p>Presentation and talk from <b>Mark Anthony Javelosa</b>.</p>
                         </div>
                     </div>
                     <div class="timeline-row">
@@ -2006,11 +2019,29 @@
                             </div>
                         </div>
                         <div class="carousel-card">
+                            <div class="research-card" onclick="openResearchModal('kifle-1')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Survival Analysis</span>
+                                <h3>Modeling Malaria Risk Near a Hydroelectric Dam: Challenges in Clustered Survival Data</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <u>Yehenew Kifle</u></p>
+                                <p class="research-abstract">Understanding how large hydroelectric dams influence malaria risk is important for public health planning in malaria-endemic regions. This study investigates the association between household proximity to the Gilgel Gibe hydroelectric dam in Ethiopia and time to malaria infection. The analysis is complicated by clustering of individuals within villages and confounding between village membership and distance from the dam.<br><br>We compare marginal, fixed-effects, stratified, and frailty survival models for analyzing the clustered time-to-event data. The models produce notably different estimates of the effect of distance from the dam. In particular, the standard frailty model estimates a weighted combination of within- and between-village distance effects, which can be misleading when these effects differ. A between-within frailty formulation provides a useful approach for separating these sources of variation. The findings highlight the importance of appropriately accounting for clustering and covariate structure when analyzing spatially clustered infectious-disease survival data.</p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="carousel-card">
                             <div class="research-card" onclick="openResearchModal('mathew-2')">
                                 <span class="research-tag"><i class="ph ph-tag"></i> Health Economics</span>
                                 <h3>Cost-effectiveness analysis: A statistical overview</h3>
                                 <p class="research-authors"><i class="ph ph-user"></i> <u>Thomas Mathew</u></p>
                                 <p class="research-abstract">Identifying treatments or interventions that are cost-effective (more effective at a reasonable cost) is clearly important in health policy decision making, especially in the allocation of health care resources. Various measures of cost-effectiveness that are informative, intuitive and simple to explain have been suggested in the literature. Popular and widely used measures include the incremental cost-effectiveness ratio (ICER), defined as the ratio between the difference of average costs and the difference of average effectiveness in two populations receiving two treatments. The ICER is interpreted as the additional cost per unit of effectiveness gained. Yet another measure is the incremental net benefit (INB), which is the difference between the incremental cost and the incremental effectiveness after multiplying the latter with a “willingness-to-pay” amount. In the talk, I will provide a selected review of the statistical criteria and methodologies for cost-effectiveness analysis. In particular, some of the recently introduced probabilistic criteria will be discussed and examples will be given.</p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="carousel-card">
+                            <div class="research-card" onclick="openResearchModal('kifle-2')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Meta-Analysis</span>
+                                <h3>Combining Evidence Across Heterogeneous Studies: Local Power of Exact Tests for a Common Mean</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <u>Yehenew Kifle</u></p>
+                                <p class="research-abstract">Combining evidence across independent studies is a fundamental problem in biostatistics, particularly when studies share a common underlying effect but exhibit heterogeneous and unknown variances. Such settings arise naturally in meta-analysis, multi-center studies, laboratory investigations, and the integration of health data from multiple populations or data sources. This work investigates exact inference for a common mean across independent normal populations with unequal variances and compares the local power properties of six exact testing procedures.<br><br>We consider several approaches for combining study-specific evidence, including Tippett’s and Wilkinson’s procedures, Fisher’s method, the inverse normal method, and modified tests based on weighted combinations of component test statistics. Analytical expressions for the local power of the six procedures are derived under alternatives close to the null hypothesis. For equal sample sizes, the resulting expressions permit a uniform comparison of the tests irrespective of the unknown population variances. Numerical evaluations further examine their performance under both equal and unequal sample-size settings.<br><br>The results show that the modified exact tests consistently provide the strongest local power among the procedures considered, while the inverse normal method also performs competitively and offers computational simplicity. These findings provide practical guidance for combining evidence across heterogeneous studies and highlight the importance of selecting statistically efficient procedures when integrating information from multiple biomedical and health data sources.</p>
                                 <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
                             </div>
                         </div>
@@ -2031,6 +2062,16 @@
                             </div>
                         </div>
                         <div class="carousel-card">
+                            <div class="research-card" onclick="openResearchModal('lucagbo')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Prediction Intervals</span>
+                                <h3>Simultaneous Prediction Intervals: A New Perspective on Assessing One’s Health</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <u>Michael Daniel Lucagbo</u></p>
+                                <p class="research-abstract">Reference intervals are often considered the most widely used medical decision-making tool. They are used to assess the health status of individuals based on laboratory measurements. Individuals whose analyte values fall inside the reference interval are diagnosed as being healthy. On the other hand, those whose values fall outside the interval may be considered as having abnormal health status. Reference intervals are computed so that they contain the central 95% of the healthy population or reference population. Therefore, the endpoints of the reference interval are the 2.5th and 97.5th population percentiles. Since these percentiles are unknown in actual practice, the reference interval is estimated from a random sample. When using estimated percentiles, the resulting reference interval will cover less than 95% of the population. To address this problem of liberal coverage, a recommended solution is to use a 95% prediction interval.<br><br>When multiple analytes are needed to diagnose a complex condition accurately, simultaneous prediction intervals whose joint coverage is 95% are needed. In this presentation, we consider several approaches for constructing simultaneous prediction intervals under a broad range of settings, including the multivariate normal and nonparametric settings. The methods to be presented accommodate correlation among analytes, which is particularly relevant when multiple biomarkers are used to assess a complex medical condition.  Furthermore, we extend the methodologies to the case where covariate information is available. Finally, we evaluate the methodologies using Monte Carlo simulations that report the estimated coverage probabilities.
+                                </p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="carousel-card">
                             <div class="research-card" onclick="openResearchModal('sy')">
                                 <span class="research-tag"><i class="ph ph-tag"></i> Rare Diseases</span>
                                 <h3>Three Questions, One Disease: Methodological Lessons from Rare Disease Research</h3>
@@ -2045,6 +2086,15 @@
                                 <h3>Tolerance Regions for Clinical Laboratory Medicine: Regression-Based Methods</h3>
                                 <p class="research-authors"><i class="ph ph-user"></i> <span><u>Iana Michelle Garcia</u>, Michael Daniel Lucagbo</span></p>
                                 <p class="research-abstract">In clinical laboratory medicine, analyte measurements are commonly evaluated using univariate reference intervals. However, when multiple analytes are required for diagnosis, applying separate univariate reference intervals increases the occurrence of false-positive results. Multivariate reference regions (MRRs) are more appropriate in this context because they account for the cross-correlations among analytes. Compared with conventional ellipsoidal MRRs, rectangular MRRs are easier to interpret and facilitate the identification of outlying analyte measurements. Prediction- and tolerance- based approaches have been proposed for constructing rectangular MRRs, with tolerance regions possessing a multiple-use property that makes them suitable for repeated application across multiple patients. In addition, analyte reference limits may be two-sided or one-sided depending on the biomarker and disease context. This paper focuses on regression-based rectangular MRRs constructed using multivariate tolerance criteria while accounting for covariate information. Specifically, we present regression-based multivariate tolerance regions, multivariate central tolerance regions, and mixed-sided multivariate tolerance regions. The performance of these proposed approaches is evaluated through simulation studies, and results show that all methods achieve coverage probabilities close to the nominal level. Finally, we apply the proposed approaches to a clinical laboratory dataset.</p>
+                                <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="carousel-card">
+                            <div class="research-card" onclick="openResearchModal('javelosa')">
+                                <span class="research-tag"><i class="ph ph-tag"></i> Pharmaceutical Analytics</span>
+                                <h3>The Data Behind the Drugstore: Mapping Pharma Performance in the Philippines</h3>
+                                <p class="research-authors"><i class="ph ph-user"></i> <u>Mark Anthony Javelosa</u></p>
+                                <p class="research-abstract">Every time a patient buys medicine at a local drugstore, a complex chain of data is set into motion. For pharmaceutical companies operating in the Philippines, tracking whether their products are succeeding requires navigating a massive, interconnected puzzle of information. In this talk, we shall be introduced to the fascinating world of commercial market intelligence and the diverse data ecosystems that power a multi-billion-peso industry.<br><br>We will unpack the primary data streams that companies use to monitor their Key Performance Indicators (KPIs) and outmaneuver competitors. The session will cover three essential data sources on which companies primarily rely for performance monitoring.  These are the third-party syndicated data audits, primary distributor invoice logs and secondary point-of-sale data, and lastly, sales force and CRM data.</p>
                                 <span class="research-link">READ ABSTRACT <i class="ph ph-arrow-right"></i></span>
                             </div>
                         </div>
@@ -2504,7 +2554,7 @@
                 role: 'Associate Professor',
                 org: 'University of Maryland Baltimore County',
                 img: './images/kifle.jpg',
-                bio: 'To follow.'
+                bio: 'Yehenew G. Kifle is a tenured Associate Professor in the Department of Mathematics and Statistics at the University of Maryland, Baltimore County, USA. He earned his PhD in Statistical Data Analysis from Ghent University, Belgium, in 2013, and joined UMBC in 2018. Prior to joining UMBC, he held faculty positions at the University of Limpopo in South Africa and Jimma University in Ethiopia.<br><br>His research interests include survival and frailty models, longitudinal and correlated data analysis, Bayesian and mixed-effects modeling, statistical meta-analysis and machine learning methods, with applications in public health, infectious diseases, environmental sciences, and agriculture. He has published extensively in statistical, biomedical, and interdisciplinary journals and has supervised several PhD and master’s students in the United States and Africa.<br><br>Dr. Kifle has led research and capacity-building projects funded by the American Statistical Association (ASA), Institute of Mathematical Statistics (IMS), Carnegie Corporation of New York, and other organizations. He is Chair and overall organizer of the African International Conference in Statistics (AIC), which promotes statistical research, education, international collaboration, and capacity building in Africa.'
             },
             'villejo': {
                 name: 'Dr. Stephen Jun Villejo',
@@ -2533,6 +2583,13 @@
                 org: 'University of the Philippines Diliman',
                 img: './images/garcia.jpg',
                 bio: 'Iana Michelle Garcia is an Assistant Professor at the University of the Philippines School of Statistics. She earned her Master of Science in Statistics from the same institution and was a recipient of the Accelerated Science and Technology Human Resource Development Program (ASTHRDP) scholarship from the Department of Science and Technology – Science Education Institute (DOST-SEI). She is a member of the Pi Gamma Mu International Honor Society.<br><br>Her research interests include biostatistics, computational statistics, tolerance regions, and statistical machine learning. She has co-authored a published work on tolerance regions and continues to explore their applications in both theoretical and applied contexts. She has presented her research at the International Conference on Advanced Machine Learning and Data Science (AMLDS) in Tokyo, Japan; the 16th National Convention on Statistics (NCS) organized by the Philippine Statistics Authority (PSA); and the 33rd International Biometric Conference in Seoul, South Korea.<br><br>In her teaching and extension activities, she has handled courses in programming, computational statistics, and statistical theory, and has served as a resource person for R programming training programs.'
+            },
+            'javelosa': {
+                name: 'Mark Anthony Javelosa',
+                role: 'Biostatistician and Senior Lecturer',
+                org: 'University of the Philippines Diliman',
+                img: './images/javelosa.png',
+                bio: 'Mark Anthony Javelosa earned both his Bachelor of Science and Master of Science in Statistics from the University of the Philippines Diliman.<br><br>He served as a senior lecturer of statistics at the Department of Clinical Epidemiology of the College of Medicine in the University of the Philippines Manila, at the Ateneo Graduate School of Business – Center for Continuing Education, and at La Consolacion College Bacolod City. He previously held key leadership and technical roles in the pharmaceutical industry, including Senior Biostatistician at Pharmaceutical Product Development (PPD), Consultant for Johnson & Johnson Philippines, and most recently Data Analytics Manager at iNova Pharmaceuticals Philippines, Inc.<br><br>His professional interests include biostatistics, clinical epidemiology and healthcare research. He also co-authored several peer-reviewed publications in primary care, public health, and clinical research, contributing to evidence-based healthcare in the Philippines.'
             },
             'tabien': {
                 name: 'Lian Mae Tabien',
@@ -2571,11 +2628,29 @@
                 authors: 'Thomas Mathew',
                 abstract: 'Identifying treatments or interventions that are cost-effective (more effective at a reasonable cost) is clearly important in health policy decision making, especially in the allocation of health care resources. Various measures of cost-effectiveness that are informative, intuitive and simple to explain have been suggested in the literature. Popular and widely used measures include the incremental cost-effectiveness ratio (ICER), defined as the ratio between the difference of average costs and the difference of average effectiveness in two populations receiving two treatments. The ICER is interpreted as the additional cost per unit of effectiveness gained. Yet another measure is the incremental net benefit (INB), which is the difference between the incremental cost and the incremental effectiveness after multiplying the latter with a “willingness-to-pay” amount. In the talk, I will provide a selected review of the statistical criteria and methodologies for cost-effectiveness analysis. In particular, some of the recently introduced probabilistic criteria will be discussed and examples will be given.'
             },
+            'kifle-1': {
+                tag: 'Survival Analysis',
+                title: 'Modeling Malaria Risk Near a Hydroelectric Dam: Challenges in Clustered Survival Data',
+                authors: 'Yehenew Kifle',
+                abstract: 'Understanding how large hydroelectric dams influence malaria risk is important for public health planning in malaria-endemic regions. This study investigates the association between household proximity to the Gilgel Gibe hydroelectric dam in Ethiopia and time to malaria infection. The analysis is complicated by clustering of individuals within villages and confounding between village membership and distance from the dam.<br><br>We compare marginal, fixed-effects, stratified, and frailty survival models for analyzing the clustered time-to-event data. The models produce notably different estimates of the effect of distance from the dam. In particular, the standard frailty model estimates a weighted combination of within- and between-village distance effects, which can be misleading when these effects differ. A between-within frailty formulation provides a useful approach for separating these sources of variation. The findings highlight the importance of appropriately accounting for clustering and covariate structure when analyzing spatially clustered infectious-disease survival data.'
+            },
+            'kifle-2': {
+                tag: 'Meta-Analysis',
+                title: 'Combining Evidence Across Heterogeneous Studies: Local Power of Exact Tests for a Common Mean',
+                authors: 'Yehenew Kifle',
+                abstract: 'Combining evidence across independent studies is a fundamental problem in biostatistics, particularly when studies share a common underlying effect but exhibit heterogeneous and unknown variances. Such settings arise naturally in meta-analysis, multi-center studies, laboratory investigations, and the integration of health data from multiple populations or data sources. This work investigates exact inference for a common mean across independent normal populations with unequal variances and compares the local power properties of six exact testing procedures.<br><br>We consider several approaches for combining study-specific evidence, including Tippett’s and Wilkinson’s procedures, Fisher’s method, the inverse normal method, and modified tests based on weighted combinations of component test statistics. Analytical expressions for the local power of the six procedures are derived under alternatives close to the null hypothesis. For equal sample sizes, the resulting expressions permit a uniform comparison of the tests irrespective of the unknown population variances. Numerical evaluations further examine their performance under both equal and unequal sample-size settings.<br><br>The results show that the modified exact tests consistently provide the strongest local power among the procedures considered, while the inverse normal method also performs competitively and offers computational simplicity. These findings provide practical guidance for combining evidence across heterogeneous studies and highlight the importance of selecting statistically efficient procedures when integrating information from multiple biomedical and health data sources.'
+            },
             'villejo': {
                 tag: 'Spatio-Temporal Modeling',
                 title: 'Advanced Spatio-Temporal Models for Misaligned Data: Applications in Real-Time Disease Surveillance',
                 authors: 'Stephen Jun Villejo',
                 abstract: 'This talk comprises two major parts, both centred around the overarching theme of real-time disease surveillance. The key statistical challenge I address is the spatial and temporal misalignment of the data.<br><br>The first part considers the problem of estimating a latent spatially continuous process from aggregated outcome data. I adopt a block aggregation framework that separates the latent process model from the sampling model, and estimate it using a linearised version of Integrated Nested Laplace Approximation (INLA). I illustrate this approach by predicting SARS-CoV-2 viral load, measured as the number of gene copies, over arbitrary areal configurations in the United Kingdom using aggregated data from the catchment areas of a sparse network of sewage treatment works. To address the difficulty arising from the fact that log-Gaussian outcomes are not closed under aggregation, I use moment matching to estimate the sampling model parameters and propose an iterative procedure to adjust the non-linear predictor expression and the scaling of the likelihood precision. This modelling approach provides a coherent framework for inference, prediction over new areal units, and spatial disaggregation.<br><br>The second part of my talk focuses on temporal misalignment in lagged covariate-response relationships, particularly in settings where the response variable is observed at a lower frequency than the predictors. In disease surveillance, for example, clinical outcomes may be recorded weekly and forecast at a one-week horizon, whereas environmental indicators such as pollution levels and wastewater viral loads are available daily. To address this, I extend the Mixed-Data Sampling framework to a spatial setting through a Spatial Distributed-Lag Mixed-Data Sampling (SDL-MIDAS) model. I discuss an efficient Bayesian computational tool for fitting these models, together with an accompanying R package that I am currently developing. An application from Wales shows that SDL-MIDAS models improve forecasts of weekly hospital admissions and positivity rates using daily wastewater signals as predictors.<br><br>Overall, this talk discusses flexible and principled approaches for handling spatial and temporal misalignment, with important applications in integrating environmental surveillance data into public health monitoring systems.'
+            },
+            'lucagbo': {
+                tag: 'Prediction Intervals',
+                title: 'Simultaneous Prediction Intervals: A New Perspective on Assessing One’s Health',
+                authors: 'Michael Daniel Lucagbo',
+                abstract: 'Reference intervals are often considered the most widely used medical decision-making tool. They are used to assess the health status of individuals based on laboratory measurements. Individuals whose analyte values fall inside the reference interval are diagnosed as being healthy. On the other hand, those whose values fall outside the interval may be considered as having abnormal health status. Reference intervals are computed so that they contain the central 95% of the healthy population or reference population. Therefore, the endpoints of the reference interval are the 2.5th and 97.5th population percentiles. Since these percentiles are unknown in actual practice, the reference interval is estimated from a random sample. When using estimated percentiles, the resulting reference interval will cover less than 95% of the population. To address this problem of liberal coverage, a recommended solution is to use a 95% prediction interval.<br><br>When multiple analytes are needed to diagnose a complex condition accurately, simultaneous prediction intervals whose joint coverage is 95% are needed. In this presentation, we consider several approaches for constructing simultaneous prediction intervals under a broad range of settings, including the multivariate normal and nonparametric settings. The methods to be presented accommodate correlation among analytes, which is particularly relevant when multiple biomarkers are used to assess a complex medical condition.  Furthermore, we extend the methodologies to the case where covariate information is available. Finally, we evaluate the methodologies using Monte Carlo simulations that report the estimated coverage probabilities.'
             },
             'sy': {
                 tag: 'Rare Diseases',
@@ -2594,6 +2669,12 @@
                 title: 'A Bayesian additive spatiotemporal model for young adolescent birth records in the Philippines',
                 authors: 'John Gilbert Rabanal, Welfredo Patungan',
                 abstract: 'Quantitative studies about young adolescent pregnancy in the Philippines had been done through the analysis of survey data. Official birth records provide a more advantageous data source in examining the dynamics of the young adolescent pregnancy due to regular recording of births. In this study, we propose a statistical methodology utilizing official birth records through a Bayesian hierarchical framework. The method accounts for the unique features of the aggregated young adolescent birth counts such as being a spatiotemporal data with known upper bounds and being characterized by the presence of excess zero counts. Our framework consists of the binomial hurdle model and Poisson hurdle model with offset, the Leroux model for spatial effects (Leroux et al., 2000), and an additive nonparametric trend model for temporal effects (Knorr-Held, 2000). We analyze and assess the performance of the proposed models using the quarterly data on young adolescent birth counts in Luzon, Philippines from 2006 to 2019 via Hamiltonian Monte Carlo. Areas that are more prone to observe a young adolescent birth and a temporal pattern about the occurrence of young adolescent births are identified.'
+            },
+            'javelosa': {
+                tag: 'Pharmaceutical Analytics',
+                title: 'The Data Behind the Drugstore: Mapping Pharma Performance in the Philippines',
+                authors: 'Mark Anthony Javelosa',
+                abstract: 'Every time a patient buys medicine at a local drugstore, a complex chain of data is set into motion. For pharmaceutical companies operating in the Philippines, tracking whether their products are succeeding requires navigating a massive, interconnected puzzle of information. In this talk, we shall be introduced to the fascinating world of commercial market intelligence and the diverse data ecosystems that power a multi-billion-peso industry.<br><br>We will unpack the primary data streams that companies use to monitor their Key Performance Indicators (KPIs) and outmaneuver competitors. The session will cover three essential data sources on which companies primarily rely for performance monitoring.  These are the third-party syndicated data audits, primary distributor invoice logs and secondary point-of-sale data, and lastly, sales force and CRM data.'
             },
             'tabien': {
                 tag: 'Decision Limits',
