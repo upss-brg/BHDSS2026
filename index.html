@@ -1900,7 +1900,7 @@
                         <div class="timeline-details">
                             <span class="tag tag-plenary"><i class="ph ph-presentation-chart"></i> Research Talk</span>
                             <h4>The Data Behind the Drugstore: Mapping Pharma Performance in the Philippines</h4>
-                            <p>Presentation and talk from <b>Mark Anthony Javelosa</b>.</p>
+                            <p>Presentation and talk from <b>Asst. Prof. Mark Anthony Javelosa</b>.</p>
                         </div>
                     </div>
                     <div class="timeline-row">
@@ -2758,24 +2758,24 @@
             }
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const toast = document.getElementById('announcement-toast');
-            const closeBtn = document.getElementById('close-toast');
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     const toast = document.getElementById('announcement-toast');
+        //     const closeBtn = document.getElementById('close-toast');
 
-            // Slide the toast in 1 second after the page loads
-            setTimeout(() => {
-                if (toast) {
-                    toast.classList.add('show');
-                }
-            }, 1000);
+        //     // Slide the toast in 1 second after the page loads
+        //     setTimeout(() => {
+        //         if (toast) {
+        //             toast.classList.add('show');
+        //         }
+        //     }, 1000);
 
-            // Remove the 'show' class to slide it back out when 'X' is clicked
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    toast.classList.remove('show');
-                });
-            }
-        });
+        //     // Remove the 'show' class to slide it back out when 'X' is clicked
+        //     if (closeBtn) {
+        //         closeBtn.addEventListener('click', () => {
+        //             toast.classList.remove('show');
+        //         });
+        //     }
+        // });
 
         function toggleScheduleView(viewType, btnElement) {
             // 1. Update active state on toggle buttons
@@ -2797,7 +2797,7 @@
         }
     </script>
 
-    <div class="toast-notification" id="announcement-toast">
+    <!-- <div class="toast-notification" id="announcement-toast">
         <div class="toast-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
@@ -2809,6 +2809,6 @@
             <p>Some sections of the conference site currently include placeholder content while we complete and finalize the conference details.</p>
         </div>
         <button class="toast-close" id="close-toast" aria-label="Close Toast">&times;</button>
-    </div>
+    </div> -->
 </body>
 </html>
